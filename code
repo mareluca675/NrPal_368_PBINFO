@@ -1,0 +1,61 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+bool isPalindrom(int n)
+{
+    if(n <= 9)
+    {
+        return true;
+    }
+    else
+    {
+    int ogl = 0, uc;
+    
+    int copien = n;
+    
+    while(n > 0)
+    {
+        uc = n % 10;
+        ogl = ogl * 10 + uc;
+        n = n / 10;
+    }
+    
+    n = copien;
+    
+    if(ogl == n)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+    }
+}
+
+long long a, b, i, NrPal = 0;
+
+int main()
+{
+    cin >> a >> b;
+    
+    if(a > b)
+    {
+        int aux = b;
+        b = a;
+        a = aux;
+    }
+    
+    for(i = a; i <= b; i++)
+    {
+        if(isPalindrom(i) == true)
+        {
+            NrPal ++;
+        }
+    }
+    
+    
+    cout << NrPal;
+    return 0;
+}
